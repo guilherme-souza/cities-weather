@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="CityWeatherModule">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -8,57 +8,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
     <script src="./app.js"></script>
   </head>
-  <body>
+  <body ng-controller="CityWeatherController">
     <header>
       <div id="header-container" class="container">
         <h1>How's the weather in?</h1>
-        <h3>Check how is the weather in some selected european cities.</h3>
+        <h3>Check how is the weather in some selected European cities.</h3>
       </div>
     </header>
     <div id="cities-container" class="container">
       <div class="row">
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6 col-md-4" ng-repeat="city in cities">
           <div class="thumbnail">
-            <img src="images/amsterdam.png">
+            <img ng-if="city" src="images/{{city.image}}">
             <div class="caption">
-              <h3>Amsterdam</h3>
-              <p>23° C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="images/lisbon.png">
-            <div class="caption">
-              <h3>Lisbon</h3>
-              <p>23° C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="images/london.png">
-            <div class="caption">
-              <h3>London</h3>
-              <p>23° C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="images/madrid.png">
-            <div class="caption">
-              <h3>Madrid</h3>
-              <p>23° C</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="images/paris.png">
-            <div class="caption">
-              <h3>Paris</h3>
-              <p>23° C</p>
+              <h3>{{city.name}}</h3>
+              <p><i class="fa fa-thermometer-half" aria-hidden="true"></i> {{city.temperature}}° C</p>
+              <hr>
+              <p>In {{city.name}} {{city.weatherDescription}} with wind speed of {{city.windSpeed}} meter/sec </p>
             </div>
           </div>
         </div>
