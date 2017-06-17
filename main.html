@@ -18,13 +18,44 @@
     <div id="cities-container" class="container">
       <div class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="city in cities">
-          <div class="thumbnail">
+          <div class="thumbnail" ng-click="selectCity(city)">
             <img ng-if="city" src="images/{{city.image}}">
             <div class="caption">
               <h3>{{city.name}}</h3>
               <p><i class="fa fa-thermometer-half" aria-hidden="true"></i> {{city.temperature}}° C</p>
               <hr>
               <p>In {{city.name}} {{city.weatherDescription}} with wind speed of {{city.windSpeed}} meter/sec </p>
+            </div>
+          </div
+        </div>
+      </div>
+    </div>
+    <div id="city-detail-container" class="container" ng-if="selectedCity">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>{{selectedCity.name}} forescast in next hours</h3>
+            <hr>
+            <div class="col-sm-12 col-md-4">
+              <p>in 3 hours</p>
+              <hr>
+              <p><i class="fa fa-thermometer-half" aria-hidden="true"></i> {{selectedCity.threeHours.temperature}}° C</p>
+              <p><i class="fa fa-sun-o" aria-hidden="true"></i> {{selectedCity.nineHours.weather}}</p>
+              <p><i class="fa fa-tachometer" aria-hidden="true"></i> {{selectedCity.nineHours.wind}} meter/sec</p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+              <p>in 6 hours</p>
+              <hr>
+              <p><i class="fa fa-thermometer-half" aria-hidden="true"></i> {{selectedCity.sixHours.temperature}}° C</p>
+              <p><i class="fa fa-sun-o" aria-hidden="true"></i> {{selectedCity.nineHours.weather}}</p>
+              <p><i class="fa fa-tachometer" aria-hidden="true"></i> {{selectedCity.nineHours.wind}} meter/sec</p>
+            </div>
+            <div class="col-sm-12 col-md-4">
+              <p>in 9 hours</p>
+              <hr>
+              <p><i class="fa fa-thermometer-half" aria-hidden="true"></i> {{selectedCity.nineHours.temperature}}° C</p>
+              <p><i class="fa fa-sun-o" aria-hidden="true"></i> {{selectedCity.nineHours.weather}}</p>
+              <p><i class="fa fa-tachometer" aria-hidden="true"></i> {{selectedCity.nineHours.wind}} meter/sec</p>
             </div>
           </div>
         </div>

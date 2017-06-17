@@ -29,8 +29,13 @@ body {
 .thumbnail {
   height: 410px;
   width: 300px;
+  cursor: pointer; cursor: hand;
 }
 
 .caption > p {
+  font-size: 18px;
+}
+
+.panel-body > div > p {
   font-size: 18px;
 }
